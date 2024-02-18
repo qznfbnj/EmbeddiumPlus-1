@@ -72,11 +72,11 @@ public class EmbyConfig {
     public static volatile double darknessFullMoonBrightCache;
 
     // PERFORMANCE;
-    public static final BooleanValue hideJREI;
+    public static final BooleanValue hideJREMI;
     public static final BooleanValue fontShadows;
     public static final BooleanValue fastChests;
     public static final BooleanValue fastBeds;
-    public static volatile boolean hideJREICache;
+    public static volatile boolean hideJREMICache;
     public static volatile boolean fontShadowsCache;
     public static volatile boolean fastChestsCache;
     public static volatile boolean fastBedsCache;
@@ -232,7 +232,7 @@ public class EmbyConfig {
         // embeddiumplus -> performance
         BUILDER.push("performance");
 
-        hideJREI = BUILDER
+        hideJREMI = BUILDER
                 .comment("Toggles JREI item rendering until searching", "Increases performance a little bit and cleans your screen when you don't want to use it")
                 .define("hideJREI", false);
 
@@ -372,7 +372,7 @@ public class EmbyConfig {
         darknessNewMoonBrightCache = darknessNewMoonBright.get();
         darknessFullMoonBrightCache = darknessFullMoonBright.get();
 
-        hideJREICache = hideJREI.get();
+        hideJREMICache = hideJREMI.get();
         fontShadowsCache = fontShadows.get();
         fastChestsCache = fastChests.get();
         fastBedsCache = fastBeds.get();

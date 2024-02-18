@@ -29,7 +29,9 @@
     "fontshadow.FontMixin",
     "fontshadow.FontMixin$StringRenderOutputMixin",
     "fps.GpuUsageMixin",
-    "jei.JeiOverlayMixin",
+    "jei_rei_emi.EmiOverlayMixin",
+    "jei_rei_emi.JeiOverlayMixin",
+    "jei_rei_emi.ReiOverlayMixin",
     "language.LanguageMixin",
     "togglefog.FogMixin",
     "zume.ZumeKeyBindsForgeMixin"

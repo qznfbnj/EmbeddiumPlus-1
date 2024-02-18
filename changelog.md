@@ -5,6 +5,7 @@
   - 🐛 This avoid invisible models/textures for mods with some weird reliance on MC resources.
 - [🐛] Fix wrong AVG display on initial games
   - 🛠️ AVG was also tweaked to store 18 values instead of 14
+- [🔥] Added EMI/REI support for "Hide JEI until searching" feature
 - [🛠️] Revoked license (now is ARR)
 
 

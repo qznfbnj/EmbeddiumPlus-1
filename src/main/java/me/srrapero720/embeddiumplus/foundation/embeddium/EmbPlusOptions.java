@@ -162,12 +162,12 @@ public class EmbPlusOptions {
                 .setControl(TickBoxControl::new)
                 .setBinding(
                         (options, value) -> {
-                            EmbyConfig.hideJREI.set(value);
-                            EmbyConfig.hideJREICache = value;
+                            EmbyConfig.hideJREMI.set(value);
+                            EmbyConfig.hideJREMICache = value;
                         },
-                        (options) -> EmbyConfig.hideJREICache)
+                        (options) -> EmbyConfig.hideJREMICache)
                 .setImpact(OptionImpact.LOW)
-                .setEnabled(EmbyTools.isModInstalled("jei"))
+                .setEnabled(EmbyTools.isModInstalled("jei") || EmbyTools.isModInstalled("roughlyenoughitems") || EmbyTools.isModInstalled("emi"))
                 .build();
 
         builder.add(fontShadow);

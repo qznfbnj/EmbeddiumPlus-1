@@ -1,4 +1,4 @@
-package me.srrapero720.embeddiumplus.mixins.impl.jei;
+package me.srrapero720.embeddiumplus.mixins.impl.jei_rei_emi;
 
 import me.srrapero720.embeddiumplus.EmbyConfig;
 import mezz.jei.gui.elements.GuiIconToggleButton;
@@ -13,6 +13,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(value = IngredientListOverlay.class, remap = false)
+@Pseudo
 public class JeiOverlayMixin {
     @Shadow @Final private GuiTextFieldFilter searchField;
     @Shadow @Final private GuiIconToggleButton configButton;
@@ -20,7 +21,7 @@ public class JeiOverlayMixin {
 
     @Inject(method = "drawScreen", at = @At(value = "INVOKE", target = "Lmezz/jei/gui/overlay/IngredientGridWithNavigation;draw(Lnet/minecraft/client/Minecraft;Lnet/minecraft/client/gui/GuiGraphics;IIF)V"), cancellable = true)
     public void inject$renderOverlay(Minecraft minecraft, GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks, CallbackInfo ci) {
-        if (!EmbyConfig.hideJREICache) return;
+        if (!EmbyConfig.hideJREMICache) return;
 
         String value = searchField.getValue();
         if (value.isEmpty()) {
@@ -33,7 +34,7 @@ public class JeiOverlayMixin {
 
     @Inject(method = "drawTooltips", at = @At(value = "HEAD"), cancellable = true)
     public void inject$renderOverlay(Minecraft minecraft, GuiGraphics guiGraphics, int mouseX, int mouseY, CallbackInfo ci) {
-        if (!EmbyConfig.hideJREICache) return;
+        if (!EmbyConfig.hideJREMICache) return;
 
         String value = searchField.getValue();
         if (value.isEmpty()) {
