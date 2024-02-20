@@ -59,7 +59,7 @@ public class EmbyConfig {
     public static final BooleanValue darknessAffectedByMoonPhase;
     public static final DoubleValue darknessNewMoonBright;
     public static final DoubleValue darknessFullMoonBright;
-    public static volatile boolean darknessOnOverworldCache = true;
+    public static volatile boolean darknessOnOverworldCache;
     public static volatile boolean darknessOnNetherCache;
     public static volatile double darknessNetherFogBrightCache;
     public static volatile boolean darknessOnEndCache;
