@@ -1,7 +1,7 @@
 # RELEASE 1.2.6
 - [🛠️] Compat fix for zume 0.18 (nojil, please slowdown)
   - 🛠️ Version was restricted to above 0.18 and below 0.19
-- 
+- [🛠️] Revoked license (now is ARR)
 
 
 # RELEASE 1.2.5
