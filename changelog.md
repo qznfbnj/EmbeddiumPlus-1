@@ -1,3 +1,9 @@
+# RELEASE 1.2.6
+- [🛠️] Compat fix for zume 0.18 (nojil, please slowdown)
+  - 🛠️ Version was restricted to above 0.18 and below 0.19
+- 
+
+
 # RELEASE 1.2.5
 - [🛠️] Removed embedded version of Zume
   - 🛠️ Now is an optional dependency (can be removed)
