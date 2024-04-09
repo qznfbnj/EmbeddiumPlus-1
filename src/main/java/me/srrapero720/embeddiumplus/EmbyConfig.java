@@ -246,7 +246,7 @@ public class EmbyConfig {
 
         fastBeds = BUILDER
                 .comment("Toggles FastBeds feature")
-                .define("fastBeds", true);
+                .define("fastBeds", false);
 
         // embeddiumplus -> performance -> distanceCulling
         BUILDER.push("distanceCulling");
