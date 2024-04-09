@@ -1,6 +1,8 @@
 # RELEASE 1.2.6
 - [🛠️] Compat fix for zume 0.18 (nojil, please slowdown)
   - 🛠️ Version was restricted to above 0.18 and below 0.19
+- [🐛] Make static beds and chests models/textures as a integrated resourcepack
+  - 🐛 This avoid invisible models/textures for mods with some weird reliance on MC resources.
 - [🛠️] Revoked license (now is ARR)
 
 

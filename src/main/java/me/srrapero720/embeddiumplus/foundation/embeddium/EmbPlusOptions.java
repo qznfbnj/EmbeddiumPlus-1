@@ -13,6 +13,8 @@ import me.srrapero720.embeddiumplus.EmbyConfig.FPSDisplaySystemMode;
 import me.srrapero720.embeddiumplus.EmbyConfig.FullScreenMode;
 import me.srrapero720.embeddiumplus.EmbyTools;
 import me.srrapero720.embeddiumplus.foundation.fastmodels.FastModels;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.OptionsScreen;
 import net.minecraft.network.chat.Component;
 
 import java.util.List;
@@ -135,7 +137,7 @@ public class EmbPlusOptions {
                         },
                         (options) -> EmbyConfig.fastChestsCache)
                 .setImpact(OptionImpact.HIGH)
-                .setEnabled(FastModels.canUseOnChests() && !EmbyTools.isModInstalled("enhancedblockentities"))
+                .setEnabled(FastModels.canUseOnChests())
                 .setFlags(OptionFlag.REQUIRES_RENDERER_RELOAD)
                 .build();
 

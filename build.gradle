@@ -109,7 +109,7 @@ tasks.jarJar.archiveClassifier = ''
 // Process target resources with mod info
 tasks.processResources.outputs.upToDateWhen { false }
 processResources {
-    filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {
+    filesMatching(['META-INF/mods.toml', 'pack.mcmeta', 'resourcepacks/**/pack.mcmeta']) {
         expand(rootProject.properties)
     }
 }
