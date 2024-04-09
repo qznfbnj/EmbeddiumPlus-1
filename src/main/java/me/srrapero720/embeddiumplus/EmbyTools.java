@@ -14,20 +14,16 @@ import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.fml.loading.FMLLoader;
 import org.apache.logging.log4j.Marker;
 import org.apache.logging.log4j.MarkerManager;
+import org.joml.Vector3d;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
 import java.util.List;
 
 import static me.srrapero720.embeddiumplus.EmbeddiumPlus.LOGGER;
 
 public class EmbyTools {
     private static final Marker IT = MarkerManager.getMarker("Tools");
-
-    public static <T> T getLastValue(T[] value) {
-        return value[value.length - 1];
-    }
 
     public static Pair<String, String> resourceLocationPair(String res) {
         String[] r = res.split(":");
@@ -36,31 +32,6 @@ public class EmbyTools {
         } finally {
             r[0] = null;
             r[1] = null;
-        }
-    }
-
-    public static void setValueInField(Class<?> clazz, String fieldName, Object from, Object value) {
-        try {
-            Field field = clazz.getField(fieldName);
-            field.setAccessible(true);
-            field.set(from, value);
-        } catch (Exception e){
-            LOGGER.error("Cannot set value of '{}' from {}", fieldName, clazz.getName(), e);
-        }
-    }
-
-    public static void invokeMethod(Class<?> clazz, String methodName, Object from, Object... values) {
-        try {
-            Class<?>[] types = new Class[values.length];
-            for (int i = 0; i < types.length; i++) {
-                types[i] = values[i].getClass();
-            }
-
-            Method field = clazz.getMethod(methodName, types);
-            field.setAccessible(true);
-            field.invoke(from, values);
-        } catch (Exception e){
-            LOGGER.error("Cannot invoke method '{}' from {}", methodName, clazz.getName(), e);
         }
     }
 
@@ -131,63 +102,22 @@ public class EmbyTools {
 
     public static boolean isModInstalled(String modid) { return FMLLoader.getLoadingModList().getModFileById(modid) != null; }
 
-    public static boolean isEntityWithinDistance(Player player, Entity entity, int maxHeight, int maxDistanceSquare) {
-        if (Math.abs(player.getY() - entity.getY() - 4) < maxHeight) {
-            double x = player.getX() - entity.getX();
-            double z = player.getZ() - entity.getZ();
+    public static boolean isEntityInRange(BlockPos pos, Vec3 cam, int maxHeight, int maxDistanceSqr) {
+        return isEntityInRange(pos.getCenter(), cam, maxHeight, maxDistanceSqr);
+    }
 
-            return x * x + z * z < maxDistanceSquare;
+    public static boolean isEntityInRange(Entity entity, double camX, double camY, double camZ, int maxHeight, int maxDistanceSqr) {
+        return isEntityInRange(entity.position(), new Vec3(camX, camY, camZ), maxHeight, maxDistanceSqr);
+    }
+
+    public static boolean isEntityInRange(Vec3 position, Vec3 camera, int maxHeight, int maxDistanceSqr) {
+        if (Math.abs(position.y - camera.y - 4) < maxHeight) {
+            double x = position.x - camera.x;
+            double z = position.z - camera.z;
+
+            return x * x + z * z < maxDistanceSqr;
         }
 
         return false;
-    }
-
-    public static boolean isEntityWithinDistance(BlockPos bePos, Vec3 camVec, int maxHeight, int maxDistanceSquare) {
-        if (Math.abs(bePos.getY() - camVec.y - 4) < maxHeight) {
-            double x = bePos.getX() - camVec.x;
-            double z = bePos.getZ() - camVec.z;
-
-            return x * x + z * z < maxDistanceSquare;
-        }
-
-        return false;
-    }
-
-    public static boolean isEntityWithinDistance(Entity entity, double cameraX, double cameraY, double cameraZ, int maxHeight, int maxDistanceSquare) {
-        if (Math.abs(entity.getY() - cameraY - 4) < maxHeight) {
-            double x = entity.getX() - cameraX;
-            double z = entity.getZ() - cameraZ;
-
-            return x * x + z * z < maxDistanceSquare;
-        }
-
-        return false;
-    }
-
-    private static final LongLongPair[] BENCHTIMES = new LongLongPair[100];
-    private static int BENCH_POS = 0;
-    public static void benchStart() {
-        BENCHTIMES[BENCH_POS] = new LongLongMutablePair(Util.getNanos(), -1);
-    }
-
-    public static void benchEnd() {
-        BENCHTIMES[BENCH_POS].right(Util.getNanos());
-        LOGGER.debug("Current method takes RIGHT NOW {} nanoseconds", BENCHTIMES[BENCH_POS].rightLong() - BENCHTIMES[BENCH_POS].leftLong());
-
-        if (BENCH_POS == BENCHTIMES.length - 1) {
-            long totalStart = 0;
-            long totalEnd = 0;
-
-            for (int i = 0; i < BENCHTIMES.length; i++) {
-                totalStart += BENCHTIMES[i].firstLong();
-                totalEnd += BENCHTIMES[i].secondLong();
-            }
-
-            LOGGER.info("Current method takes AVG {} nanoseconds", (totalEnd - totalStart) / BENCHTIMES.length);
-
-            BENCH_POS = 0;
-        } else {
-            BENCH_POS++;
-        }
     }
 }

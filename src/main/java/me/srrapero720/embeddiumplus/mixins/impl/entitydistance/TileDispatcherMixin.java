@@ -22,7 +22,7 @@ public class TileDispatcherMixin {
     public <E extends BlockEntity> void render(E tile, float val, PoseStack matrix, MultiBufferSource bufferSource, CallbackInfo ci) {
         if (!EmbyConfig.tileEntityDistanceCullingCache) return;
 
-        if (!((IWhitelistCheck) tile.getType()).embPlus$isAllowed() && !EmbyTools.isEntityWithinDistance(
+        if (!((IWhitelistCheck) tile.getType()).embPlus$isAllowed() && !EmbyTools.isEntityInRange(
                 tile.getBlockPos(),
                 camera.getPosition(),
                 EmbyConfig.tileEntityCullingDistanceYCache,
