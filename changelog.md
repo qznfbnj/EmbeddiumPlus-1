@@ -3,6 +3,8 @@
   - 🛠️ Version was restricted to above 0.18 and below 0.19
 - [🐛] Make static beds and chests models/textures as a integrated resourcepack
   - 🐛 This avoid invisible models/textures for mods with some weird reliance on MC resources.
+- [🐛] Fix wrong AVG display on initial games
+  - 🛠️ AVG was also tweaked to store 18 values instead of 14
 - [🛠️] Revoked license (now is ARR)
 
 

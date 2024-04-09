@@ -169,13 +169,16 @@ public class DebugOverlayEvent {
     }
 
     public static class AverageQueue {
-        private final int[] QUEUE = new int[14];
+        private final int[] QUEUE = new int[18];
+        private boolean filled = false;
         private int used = 0;
 
         void push(int value) {
-            if (used == QUEUE.length) used = 0;
-            QUEUE[used] = value;
-            used++;
+            if (used == QUEUE.length) {
+                used = 0;
+                filled = true;
+            }
+            QUEUE[used++] = value;
         }
 
         int calculate() {
@@ -184,7 +187,7 @@ public class DebugOverlayEvent {
                 times += QUEUE[i];
             }
 
-            return times / used;
+            return times / (filled ? QUEUE.length : used);
         }
     }
 }
