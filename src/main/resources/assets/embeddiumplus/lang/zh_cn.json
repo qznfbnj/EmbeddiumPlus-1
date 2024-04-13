@@ -18,6 +18,9 @@
   "embeddium.plus.options.clouds.height.title": "云层高度",
   "embeddium.plus.options.clouds.height.desc": "改变云层的高度。",
 
+  "embeddium.plus.options.nametag.disable_rendering.title": "禁用命名牌渲染",
+  "embeddium.plus.options.nametag.disable_rendering.desc": "别让我看你的名字了！\n禁用玩家和其他实体的命名牌渲染。",
+
   "embeddium.plus.options.culling.page": "实体剔除",
   "embeddium.plus.options.culling.entity.title": "使用实体最大渲染距离",
   "embeddium.plus.options.culling.entity.desc": "启用后，游戏将会基于所配置的最大距离进行实体的隐藏。",
@@ -103,6 +106,8 @@
   "embeddium.plus.options.fastbeds.desc": "启用后，用静态模型替换床原有的动态模型，就类似普通方块。增强了性能的同时，你仍然可以使用资源包中的自定义模型。\n重要提示：此选项需要和资源包配套使用，必须一同开启/关闭。",
   "embeddium.plus.options.fog.title": "启用迷雾",
   "embeddium.plus.options.fog.desc": "禁用后，移除世界中的所有迷雾效果。",
+  "embeddium.plus.options.blueband.title": "使用天空蓝色条带",
+  "embeddium.plus.options.blueband.desc": "禁用后，移除所有维度的蓝色条带效果。",
   "embeddium.plus.options.fontshadow.title": "字体阴影",
   "embeddium.plus.options.fontshadow.desc": "禁用后，文本将停止渲染阴影，显得扁平化。\nFPS能提高多少，取决于屏幕上有多少文本，特别是安装了更好的F3（BetterF3）模组后。",
   "embeddium.plus.options.jei.title": "不在搜索时隐藏JEI/REI/EMI",
