@@ -74,6 +74,54 @@ public class EntityCullingPage extends OptionPage {
                 .build()
         );
 
+        var monsterDistanceChecks = OptionImpl.createBuilder(boolean.class, performanceOptionsStorage)
+                .setName(Component.translatable("embeddium.plus.options.culling.monster.title"))
+                .setTooltip(Component.translatable("embeddium.plus.options.culling.monster.desc"))
+                .setControl(TickBoxControl::new)
+                .setBinding(
+                        (options, value) -> {
+                            EmbyConfig.monsterDistanceCulling.set(value);
+                            EmbyConfig.monsterDistanceCullingCache = value;
+                        },
+                        (options) -> EmbyConfig.monsterDistanceCullingCache)
+                .setImpact(OptionImpact.HIGH)
+                .build();
+
+        var maxMonsterDistance = OptionImpl.createBuilder(int.class, performanceOptionsStorage)
+                .setName(Component.translatable("embeddium.plus.options.culling.monster.distance.horizontal.title"))
+                .setTooltip(Component.translatable("embeddium.plus.options.culling.monster.distance.horizontal.desc"))
+                .setControl((option) -> new SliderControl(option, 16, 192, 8, ControlValueFormatter.biomeBlend()))
+                .setBinding(
+                        (options, value) -> {
+                            int result = value * value;
+                            EmbyConfig.monsterCullingDistanceX.set(result);
+                            EmbyConfig.monsterCullingDistanceXCache = result;
+                        },
+                        (options) -> Math.toIntExact(Math.round(Math.sqrt(EmbyConfig.monsterCullingDistanceXCache))))
+                .setImpact(OptionImpact.HIGH)
+                .build();
+
+        var maxMonsterDistanceVertical = OptionImpl.createBuilder(int.class, performanceOptionsStorage)
+                .setName(Component.translatable("embeddium.plus.options.culling.monster.distance.vertical.title"))
+                .setTooltip(Component.translatable("embeddium.plus.options.culling.monster.distance.vertical.desc"))
+                .setControl((option) -> new SliderControl(option, 16, 64, 4, ControlValueFormatter.biomeBlend()))
+                .setBinding(
+                        (options, value) -> {
+                            EmbyConfig.monsterCullingDistanceY.set(value);
+                            EmbyConfig.monsterCullingDistanceYCache = value;
+                        },
+                        (options) -> EmbyConfig.monsterCullingDistanceYCache)
+                .setImpact(OptionImpact.HIGH)
+                .build();
+
+
+        groups.add(OptionGroup.createBuilder()
+                .add(monsterDistanceChecks)
+                .add(maxMonsterDistance)
+                .add(maxMonsterDistanceVertical)
+                .build()
+        );
+
 
         var enableTileDistanceChecks = OptionImpl.createBuilder(boolean.class, performanceOptionsStorage)
                 .setName(Component.translatable("embeddium.plus.options.culling.tiles.title"))

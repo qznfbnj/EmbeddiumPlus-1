@@ -6,7 +6,7 @@ import me.srrapero720.embeddiumplus.foundation.entitydistance.IWhitelistCheck;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.entity.MobCategory;
 import org.apache.logging.log4j.Marker;
 import org.apache.logging.log4j.MarkerManager;
 import org.spongepowered.asm.mixin.Mixin;
@@ -21,7 +21,7 @@ public abstract class EntityTypeMixin implements IWhitelistCheck {
     @Unique private boolean embPlus$checked = false;
     @Unique private boolean embPlus$whitelisted = false;
 
-    @Shadow public abstract ResourceLocation getDefaultLootTable();
+    @Shadow public abstract MobCategory getCategory();
 
     @Override
     @Unique
@@ -34,7 +34,7 @@ public abstract class EntityTypeMixin implements IWhitelistCheck {
             return false;
         }
 
-        this.embPlus$whitelisted = EmbyTools.isWhitelisted(resource, EmbyConfig.entityWhitelist);
+        this.embPlus$whitelisted = EmbyTools.isWhitelisted(resource, this.getCategory() == MobCategory.MONSTER ? EmbyConfig.monsterWhitelist : EmbyConfig.entityWhitelist);
         this.embPlus$checked = true;
 
         LOGGER.debug(e$IT,"Whitelist checked for {}", resource.toString());

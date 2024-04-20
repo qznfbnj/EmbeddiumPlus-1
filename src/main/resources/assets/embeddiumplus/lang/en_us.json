@@ -28,6 +28,14 @@
   "embeddium.plus.options.culling.entity.distance.horizontal.desc": "Hides and does not tick entities beyond this many blocks. Huge performance increase, especially around modded farms.",
   "embeddium.plus.options.culling.entity.distance.vertical.title": "Entities Max Distance (Vertical)",
   "embeddium.plus.options.culling.entity.distance.vertical.desc": "Hides and does not tick entities underneath this many blocks, improving performance above caves. This should ideally be set lower than the horizontal distance.",
+
+  "embeddium.plus.options.culling.monster.title": "Use Max Monster Distance",
+  "embeddium.plus.options.culling.monster.desc": "If enabled, Monsters (hostile entities) will be hidden based on configured distance limit",
+  "embeddium.plus.options.culling.monster.distance.horizontal.title": "Monsters Max Distance (Horizontal)",
+  "embeddium.plus.options.culling.monster.distance.horizontal.desc": "Hides and does not tick monsters beyond this many blocks. Huge performance increase, especially around XP farms.",
+  "embeddium.plus.options.culling.monster.distance.vertical.title": "Monsters Max Distance (Vertical)",
+  "embeddium.plus.options.culling.monster.distance.vertical.desc": "Hides and does not tick monsters underneath this many blocks, improving performance above caves. This should ideally be set lower than the horizontal distance.",
+
   "embeddium.plus.options.culling.tiles.title": "Use max Block Entity Distance",
   "embeddium.plus.options.culling.tiles.desc": "If enabled, Block Entities will be hidden based on configured distance limit",
   "embeddium.plus.options.culling.tile.distance.horizontal.title": "Block Entities Max Distance (Horizontal)",
