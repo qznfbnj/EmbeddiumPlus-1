@@ -1,4 +1,5 @@
 # RELEASE 1.2.8
+- [🐛] Fixed weird crash with some mods unregistering their block entities
 - [🍜] Updated Simplified Chinese translation (by qznfbnj)
   - 🍜 I forgot to add him in the last changelog
 
