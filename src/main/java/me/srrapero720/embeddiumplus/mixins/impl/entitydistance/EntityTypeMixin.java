@@ -25,10 +25,15 @@ public abstract class EntityTypeMixin implements IWhitelistCheck {
 
     @Override
     @Unique
-    public boolean embPlus$isAllowed() {
+    public boolean embPlus$isWhitelisted() {
         if (embPlus$checked) return embPlus$whitelisted;
 
         final var resource = embPlus$resourceLocation();
+        if (resource == null) {
+            LOGGER.warn(e$IT, "key for '{}' is null, some mod decides to broke itself, not whitelisting", this.getClass().getName());
+            return false;
+        }
+
         this.embPlus$whitelisted = EmbyTools.isWhitelisted(resource, EmbyConfig.entityWhitelist);
         this.embPlus$checked = true;
 

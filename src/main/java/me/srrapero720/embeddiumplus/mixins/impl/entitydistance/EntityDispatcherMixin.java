@@ -17,7 +17,7 @@ public class EntityDispatcherMixin {
     public <E extends Entity> void inject$shouldRender(E entity, Frustum clippingHelper, double cameraX, double cameraY, double cameraZ, CallbackInfoReturnable<Boolean> cir) {
         if (!EmbyConfig.entityDistanceCullingCache) return;
 
-        if (!((IWhitelistCheck) entity.getType()).embPlus$isAllowed() && !EmbyTools.isEntityInRange(
+        if (!((IWhitelistCheck) entity.getType()).embPlus$isWhitelisted() && !EmbyTools.isEntityInRange(
                 entity,
                 cameraX,
                 cameraY,
