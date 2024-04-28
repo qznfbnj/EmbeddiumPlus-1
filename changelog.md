@@ -12,7 +12,7 @@
   - 🛠️ the GPU usage update was forced to had a cooldown like the current FPS.
 If for some reason a weird mod hardly depends on the immediate gpu usage rate, please report to me :P 
 - [🍜] Updated Simplified Chinese translation (by qznfbnj)
-  - 🍜 I forgot to add him in the last changelog
+  - 🍜 Added since 1.2.7 - I forgot to add him.
 
 # RELEASE 1.2.7
 - [🐛] Fix REI is not working
