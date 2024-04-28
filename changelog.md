@@ -1,5 +1,6 @@
 # RELEASE 1.2.8
 - [🐛] Fixed weird crash with some mods unregistering their block entities
+- [🛠️] Marked Textrues Embeeddium Options as a optional dependency (in favor of future Embeddium versions)
 - [🍜] Updated Simplified Chinese translation (by qznfbnj)
   - 🍜 I forgot to add him in the last changelog
 
@@ -24,7 +25,6 @@
   - 🛠️ AVG was also tweaked to store 18 values instead of 14
 - [🔥] Added EMI/REI support for "Hide JEI until searching" feature
 - [🛠️] Revoked license (now is ARR)
-
 
 # RELEASE 1.2.5
 - [🛠️] Removed embedded version of Zume
