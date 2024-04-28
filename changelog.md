@@ -7,6 +7,10 @@
   - ℹ️ At the moment only available ALL and OFF
 - [🛠️] You didn't feel the general page too flooded?
   - 🛠️ Moved the "display FPS" options to Metrics page (spoiler)
+- [🛠️] Tweaked FPS display code
+  - 🛠️ Doesn't impact the behavior (at all), just simplification
+  - 🛠️ the GPU usage update was forced to had a cooldown like the current FPS.
+If for some reason a weird mod hardly depends on the immediate gpu usage rate, please report to me :P 
 - [🍜] Updated Simplified Chinese translation (by qznfbnj)
   - 🍜 I forgot to add him in the last changelog
 
