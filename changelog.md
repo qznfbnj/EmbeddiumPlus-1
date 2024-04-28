@@ -1,6 +1,10 @@
 # RELEASE 1.2.8
 - [🐛] Fixed weird crash with some mods unregistering their block entities
 - [🛠️] Marked Textrues Embeeddium Options as a optional dependency (in favor of future Embeddium versions)
+- [🔥] Added "leaves culling"
+  - ℹ️ Culls leaves faces when are around other leaves
+  - ℹ️ Only culls leaves of the same type (oak leaves cannot cull dark oak leaves)
+  - ℹ️ At the moment only available ALL and OFF
 - [🍜] Updated Simplified Chinese translation (by qznfbnj)
   - 🍜 I forgot to add him in the last changelog
 

@@ -126,6 +126,20 @@ public class EmbPlusOptions {
                         (options) -> EmbyConfig.fontShadowsCache)
                 .setImpact(OptionImpact.VARIES)
                 .build();
+
+        var leavesCulling = OptionImpl.createBuilder(EmbyConfig.LeavesCullingMode.class, sodiumOpts)
+                .setName(Component.translatable("embeddium.plus.options.leaves_culling.title"))
+                .setTooltip(Component.translatable("embeddium.plus.options.leaves_culling.desc"))
+                .setControl(opt -> new CyclingControl<>(opt, EmbyConfig.LeavesCullingMode.class, new Component[] {
+                        Component.translatable("embeddium.plus.options.leaves_culling.all"),
+                        Component.translatable("embeddium.plus.options.leaves_culling.off")
+                }))
+                .setBinding((opt, v) -> EmbyConfig.leavesCulling.set(v),
+                        (options) -> EmbyConfig.leavesCulling.get())
+                .setImpact(OptionImpact.HIGH)
+                .setFlags(OptionFlag.REQUIRES_RENDERER_RELOAD)
+                .build();
+
         var fastChest = OptionImpl.createBuilder(boolean.class, sodiumOpts)
                 .setName(Component.translatable("embeddium.plus.options.fastchest.title"))
                 .setTooltip(Component.translatable("embeddium.plus.options.fastchest.desc"))
@@ -172,6 +186,7 @@ public class EmbPlusOptions {
                 .setEnabled(EmbyTools.isModInstalled("jei") || EmbyTools.isModInstalled("roughlyenoughitems") || EmbyTools.isModInstalled("emi"))
                 .build();
 
+        builder.add(leavesCulling);
         builder.add(fontShadow);
         builder.add(fastChest);
         builder.add(fastBeds);

@@ -108,6 +108,15 @@
   "embeddium.plus.options.dynlights.speed.desc": "Controls how often dynamic lights will update.\n\nLighting recalculation can be expensive, so slower values will give better performance.",
   "embeddium.plus.options.fadein.title": "Chunk Fade In Quality",
   "embeddium.plus.options.fadein.desc": "Controls how fast chunks fade in. No performance hit, Fancy simply takes longer, but looks a bit cooler. Currently not working",
+
+  "embeddium.plus.options.leaves_culling.title": "Leaves Culling",
+  "embeddium.plus.options.leaves_culling.desc": "Reduces the number of leaves visible faces of the same type, Controls the depth of the culling",
+  "embeddium.plus.options.leaves_culling.all": "All",
+  "embeddium.plus.options.leaves_culling.more": "More",
+  "embeddium.plus.options.leaves_culling.half": "Half",
+  "embeddium.plus.options.leaves_culling.less": "Less",
+  "embeddium.plus.options.leaves_culling.off": "Off",
+
   "embeddium.plus.options.fastchest.title": "Use Fast Chests",
   "embeddium.plus.options.fastchest.desc": "If enabled, replaces chests model with a static model, like a normal block. Breaks chest animation but goes more faster on chest rooms\n\nOption has no effects with flywheel installed and running batching or instancing backend\nIMPORTANT: enabling/disabling it requires also enabling/disabling resourcepack",
   "embeddium.plus.options.fastbeds.title": "Use Fast Beds",

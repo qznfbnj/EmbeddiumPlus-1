@@ -77,6 +77,7 @@ public class EmbyConfig {
     // PERFORMANCE;
     public static final BooleanValue hideJREMI;
     public static final BooleanValue fontShadows;
+    public static final EnumValue<LeavesCullingMode> leavesCulling;
     public static final BooleanValue fastChests;
     public static final BooleanValue fastBeds;
     public static boolean hideJREMICache;
@@ -249,6 +250,10 @@ public class EmbyConfig {
         // embeddiumplus -> performance
         BUILDER.push("performance");
 
+        leavesCulling = BUILDER
+                .comment("Sets culling mode", "Reduces number of visible faces when the neighbor blocks are leaves")
+                .defineEnum("leavesCulling", LeavesCullingMode.OFF);
+
         hideJREMI = BUILDER
                 .comment("Toggles JREI item rendering until searching", "Increases performance a little bit and cleans your screen when you don't want to use it")
                 .define("hideJREI", false);
@@ -257,13 +262,18 @@ public class EmbyConfig {
                 .comment("Toggles Minecraft Fonts shadows", "Depending of the case may increase performance", "Gives a flat style text")
                 .define("fontShadows", true);
 
+        // embeddiumplus -> performance -> fastModels
+        BUILDER.push("fastModels");
         fastChests = BUILDER
                 .comment("Toggles FastChest feature", "Without flywheel installed or using any backend, it increases FPS significatly on chest rooms")
-                .define("fastChest", false);
+                .define("enableChests", false);
 
         fastBeds = BUILDER
                 .comment("Toggles FastBeds feature")
-                .define("fastBed", false);
+                .define("enableBeds", false);
+
+        // embeddiumplus -> performance
+        BUILDER.pop();
 
         // embeddiumplus -> performance -> distanceCulling
         BUILDER.push("distanceCulling");
@@ -533,5 +543,9 @@ public class EmbyConfig {
         public boolean isBorderless() {
             return this == BORDERLESS;
         }
+    }
+
+    public enum LeavesCullingMode {
+        ALL, OFF; // MORE, HALF, LESS
     }
 }
