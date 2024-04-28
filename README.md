@@ -21,8 +21,6 @@ enhanced own made video settings screen and much more.
 # 🔧 FEATURES
 
 ### [⚡] PERFORMANCE
-
-~~- **[💡] Dynamic Lights:**~~ (**Soon™️** will be back)
 - **[🐄] Entity Distance Culling:** Stops rendering and ticking on client side of **Entities** and **Block entities** too far away.
   - You can ignore specific entities in mod config adding them on the whitelist (requires resource name)
   - Example: ``minecraft:bat`` skips bats only, `alexsmobs:*` skips all Alex's Mobs entities.
@@ -33,7 +31,7 @@ enhanced own made video settings screen and much more.
 - **[🌎] Fast Language Reload:** No more wait 2 minutes just to change your language
 
 ### [👓] QUALITY
-
+- ~~**[💡] Dynamic Lights:**~~ (**Soon™️** will be back)
 - **[🧮] FPS Display:** Shows your current, min and average **FPS**, **Memory** usage percent and **GPU** usage percent.
     - You can place it anywhere of your top corners
 - **[🖥️] Borderless FullScreen:** gives Image-In-Image support, and you can use ALT+TAB faster
