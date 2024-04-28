@@ -1,5 +1,6 @@
 package me.srrapero720.embeddiumplus;
 
+import me.srrapero720.embeddiumplus.util.MockerInstalledException;
 import me.srrapero720.embeddiumplus.util.XenonInstalledException;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -20,5 +21,6 @@ public class EmbeddiumPlus {
     @SubscribeEvent
     public void onGameStarting(FMLClientSetupEvent event) {
         if (EmbyTools.isModInstalled("xenon")) throw new XenonInstalledException();
+        if (EmbyTools.isModInstalled("embeddiumextras")) throw new MockerInstalledException();
     }
 }
