@@ -18,6 +18,12 @@ import java.util.List;
 public class EmbOptionsMixin {
     @Shadow @Final private List<OptionPage> pages;
 
+    @WrapOperation(method = "<init>", at = @At(value = "INVOKE", target = "Ljava/util/List;add(Ljava/lang/Object;)Z", ordinal = 0))
+    private <E> boolean redirect$generalPage(List<E> instance, E e, Operation<Boolean> original) {
+        original.call(instance, e);
+        return pages.add(new MetricsPage());
+    }
+
     @WrapOperation(method = "<init>", at = @At(value = "INVOKE", target = "Ljava/util/List;add(Ljava/lang/Object;)Z", ordinal = 1))
     private <E> boolean redirect$qualityPage(List<E> instance, E e, Operation<Boolean> original) {
         original.call(instance, e);

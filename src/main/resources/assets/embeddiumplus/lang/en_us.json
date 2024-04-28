@@ -21,6 +21,33 @@
   "embeddium.plus.options.nametag.disable_rendering.title": "Disable NameTag rendering",
   "embeddium.plus.options.nametag.disable_rendering.desc": "Do not show me your name!\nDisables nametag rendering for players and entities",
 
+  "embeddium.plus.options.metrics.page": "Metrics",
+  "embeddium.plus.options.displayfps.title": "Display FPS",
+  "embeddium.plus.options.displayfps.desc": "Displays the current FPS. Advanced mode also displays minimum FPS, as well as 15 second average FPS, useful for judging performance.",
+
+  "embeddium.plus.options.displayfps.gravity.title": "Text Gravity",
+  "embeddium.plus.options.displayfps.gravity.desc": "Corner position of the FPS display",
+  "embeddium.plus.options.displayfps.gravity.left": "Left",
+  "embeddium.plus.options.displayfps.gravity.center": "Center",
+  "embeddium.plus.options.displayfps.gravity.right": "Right",
+
+  "embeddium.plus.options.displayfps.system.title": "Display Metrics",
+  "embeddium.plus.options.displayfps.system.desc": "Displays memory usage and GPU usage beside FPS counter",
+  "embeddium.plus.options.displayfps.system.gpu": "Graphics only",
+  "embeddium.plus.options.displayfps.system.ram": "Memory only",
+
+  "embeddium.plus.options.displayfps.margin.title": "Text Margin",
+  "embeddium.plus.options.displayfps.margin.desc": "Offset of the FPS display",
+
+  "embeddium.plus.options.displayfps.shadow.title": "Use Text Shadow Box",
+  "embeddium.plus.options.displayfps.shadow.desc": "Add a Shadow box onto FPS Display, at the pure style of F3",
+
+  "embeddium.plus.options.displayfps.fps": "FPS",
+  "embeddium.plus.options.displayfps.min": "MIN",
+  "embeddium.plus.options.displayfps.avg": "AVG",
+  "embeddium.plus.options.displayfps.gpu": "GPU",
+  "embeddium.plus.options.displayfps.mem": "MEM",
+
   "embeddium.plus.options.culling.page": "Entity Culling",
   "embeddium.plus.options.culling.entity.title": "Use Max Entity Distance",
   "embeddium.plus.options.culling.entity.desc": "If enabled, Entities will be hidden based on configured distance limit",
@@ -72,32 +99,6 @@
   "embeddium.plus.options.darkness.moonphase.fresh.desc": "Configure brightness on a new moon, or minimal bright level on black moon phase",
   "embeddium.plus.options.darkness.moonphase.full.title": "Full Moon Bright (max)",
   "embeddium.plus.options.darkness.moonphase.full.desc": "Configure brightness on a full moon, or maximum bright level on black moon phase",
-
-  "embeddium.plus.options.displayfps.title": "Display FPS",
-  "embeddium.plus.options.displayfps.desc": "Displays the current FPS. Advanced mode also displays minimum FPS, as well as 15 second average FPS, useful for judging performance.",
-
-  "embeddium.plus.options.displayfps.gravity.title": "Text Gravity",
-  "embeddium.plus.options.displayfps.gravity.desc": "Corner position of the FPS display",
-  "embeddium.plus.options.displayfps.gravity.left": "Left",
-  "embeddium.plus.options.displayfps.gravity.center": "Center",
-  "embeddium.plus.options.displayfps.gravity.right": "Right",
-
-  "embeddium.plus.options.displayfps.system.title": "Display Metrics",
-  "embeddium.plus.options.displayfps.system.desc": "Displays memory usage and GPU usage beside FPS counter",
-  "embeddium.plus.options.displayfps.system.gpu": "Graphics only",
-  "embeddium.plus.options.displayfps.system.ram": "Memory only",
-
-  "embeddium.plus.options.displayfps.margin.title": "Text Margin",
-  "embeddium.plus.options.displayfps.margin.desc": "Offset of the FPS display",
-
-  "embeddium.plus.options.displayfps.shadow.title": "Use Text Shadow Box",
-  "embeddium.plus.options.displayfps.shadow.desc": "Add a Shadow box onto FPS Display, at the pure style of F3",
-
-  "embeddium.plus.options.displayfps.fps": "FPS",
-  "embeddium.plus.options.displayfps.min": "MIN",
-  "embeddium.plus.options.displayfps.avg": "AVG",
-  "embeddium.plus.options.displayfps.gpu": "GPU",
-  "embeddium.plus.options.displayfps.mem": "MEM",
 
   "embeddium.plus.options.dynlights.page": "Dynamic Lights",
   "embeddium.plus.options.dynlights.tiles.title": "Use for Block Entities",

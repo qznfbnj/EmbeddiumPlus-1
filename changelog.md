@@ -5,6 +5,8 @@
   - ℹ️ Culls leaves faces when are around other leaves
   - ℹ️ Only culls leaves of the same type (oak leaves cannot cull dark oak leaves)
   - ℹ️ At the moment only available ALL and OFF
+- [🛠️] You didn't feel the general page too flooded?
+  - 🛠️ Moved the "display FPS" options to Metrics page (spoiler)
 - [🍜] Updated Simplified Chinese translation (by qznfbnj)
   - 🍜 I forgot to add him in the last changelog
 
