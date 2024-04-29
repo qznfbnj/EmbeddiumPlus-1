@@ -1,6 +1,19 @@
 # RELEASE 1.2.8
-- [🍜] Updated Simplified Chinese translation (by qznfbnj)
-  - 🍜 I forgot to add him in the last changelog
+- [🐛] Fixed weird crash with some mods unregistering their block entities
+- [🛠️] Marked Textrues Embeeddium Options as a optional dependency (in favor of future Embeddium versions)
+- [🔥] Added "leaves culling"
+  - ℹ️ Culls leaves faces when are around other leaves
+  - ℹ️ Only culls leaves of the same type (oak leaves cannot cull dark oak leaves)
+  - ℹ️ At the moment only available ALL and OFF
+- [🛠️] You didn't feel the general page too flooded?
+  - 🛠️ Moved the "display FPS" options to Metrics page (spoiler)
+- [🛠️] Tweaked FPS display code
+  - 🛠️ Doesn't impact the behavior (at all), just simplification
+  - 🛠️ the GPU usage update was forced to had a cooldown like the current FPS.
+If for some reason a weird mod hardly depends on the immediate gpu usage rate, please report to me :P 
+- [🌐] Updated translations (git lost track of master branch and "rebase" never rebased the PRs): 
+  - [🍜] Updated Simplified Chinese translation (by qznfbnj)
+  - [🍾] Updated Russian translation (by mpustovoi)
 
 # RELEASE 1.2.7
 - [🐛] Fix REI is not working
@@ -23,7 +36,6 @@
   - 🛠️ AVG was also tweaked to store 18 values instead of 14
 - [🔥] Added EMI/REI support for "Hide JEI until searching" feature
 - [🛠️] Revoked license (now is ARR)
-
 
 # RELEASE 1.2.5
 - [🛠️] Removed embedded version of Zume

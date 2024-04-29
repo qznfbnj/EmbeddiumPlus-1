@@ -4,14 +4,14 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 
 public class FPSDisplay {
-    private String builder = "";
+    private StringBuilder builder = new StringBuilder();
     private boolean split = false;
     private boolean divisor = false;
 
     public FPSDisplay append(String param) {
-        if (split) builder += " - ";
-        if (divisor) builder += " | ";
-        builder += param;
+        if (split) builder.append(" - ");
+        if (divisor) builder.append(" | ");
+        builder.append(param);
 
         split = false;
         divisor = true;
@@ -27,12 +27,12 @@ public class FPSDisplay {
     }
 
     public FPSDisplay add(int param) {
-        builder += param;
+        builder.append(param);
         return this;
     }
 
     public FPSDisplay add(String param) {
-        builder += param;
+        builder.append(param);
         return this;
     }
 
@@ -54,13 +54,13 @@ public class FPSDisplay {
     }
 
     public void release() {
-        builder = "";
+        builder = new StringBuilder();
         split = false;
         divisor = false;
     }
 
     @Override
     public String toString() {
-        return builder;
+        return builder.toString();
     }
 }

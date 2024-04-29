@@ -21,6 +21,33 @@
   "embeddium.plus.options.nametag.disable_rendering.title": "Disable NameTag rendering",
   "embeddium.plus.options.nametag.disable_rendering.desc": "Do not show me your name!\nDisables nametag rendering for players and entities",
 
+  "embeddium.plus.options.metrics.page": "Metrics",
+  "embeddium.plus.options.displayfps.title": "Display FPS",
+  "embeddium.plus.options.displayfps.desc": "Displays the current FPS. Advanced mode also displays minimum FPS, as well as 15 second average FPS, useful for judging performance.",
+
+  "embeddium.plus.options.displayfps.gravity.title": "Text Gravity",
+  "embeddium.plus.options.displayfps.gravity.desc": "Corner position of the FPS display",
+  "embeddium.plus.options.displayfps.gravity.left": "Left",
+  "embeddium.plus.options.displayfps.gravity.center": "Center",
+  "embeddium.plus.options.displayfps.gravity.right": "Right",
+
+  "embeddium.plus.options.displayfps.system.title": "Display Metrics",
+  "embeddium.plus.options.displayfps.system.desc": "Displays memory usage and GPU usage beside FPS counter",
+  "embeddium.plus.options.displayfps.system.gpu": "Graphics only",
+  "embeddium.plus.options.displayfps.system.ram": "Memory only",
+
+  "embeddium.plus.options.displayfps.margin.title": "Text Margin",
+  "embeddium.plus.options.displayfps.margin.desc": "Offset of the FPS display",
+
+  "embeddium.plus.options.displayfps.shadow.title": "Use Text Shadow Box",
+  "embeddium.plus.options.displayfps.shadow.desc": "Add a Shadow box onto FPS Display, at the pure style of F3",
+
+  "embeddium.plus.options.displayfps.fps": "FPS",
+  "embeddium.plus.options.displayfps.min": "MIN",
+  "embeddium.plus.options.displayfps.avg": "AVG",
+  "embeddium.plus.options.displayfps.gpu": "GPU",
+  "embeddium.plus.options.displayfps.mem": "MEM",
+
   "embeddium.plus.options.culling.page": "Entity Culling",
   "embeddium.plus.options.culling.entity.title": "Use Max Entity Distance",
   "embeddium.plus.options.culling.entity.desc": "If enabled, Entities will be hidden based on configured distance limit",
@@ -28,6 +55,14 @@
   "embeddium.plus.options.culling.entity.distance.horizontal.desc": "Hides and does not tick entities beyond this many blocks. Huge performance increase, especially around modded farms.",
   "embeddium.plus.options.culling.entity.distance.vertical.title": "Entities Max Distance (Vertical)",
   "embeddium.plus.options.culling.entity.distance.vertical.desc": "Hides and does not tick entities underneath this many blocks, improving performance above caves. This should ideally be set lower than the horizontal distance.",
+
+  "embeddium.plus.options.culling.monster.title": "Use Max Monster Distance",
+  "embeddium.plus.options.culling.monster.desc": "If enabled, Monsters (hostile entities) will be hidden based on configured distance limit",
+  "embeddium.plus.options.culling.monster.distance.horizontal.title": "Monsters Max Distance (Horizontal)",
+  "embeddium.plus.options.culling.monster.distance.horizontal.desc": "Hides and does not tick monsters beyond this many blocks. Huge performance increase, especially around XP farms.",
+  "embeddium.plus.options.culling.monster.distance.vertical.title": "Monsters Max Distance (Vertical)",
+  "embeddium.plus.options.culling.monster.distance.vertical.desc": "Hides and does not tick monsters underneath this many blocks, improving performance above caves. This should ideally be set lower than the horizontal distance.",
+
   "embeddium.plus.options.culling.tiles.title": "Use max Block Entity Distance",
   "embeddium.plus.options.culling.tiles.desc": "If enabled, Block Entities will be hidden based on configured distance limit",
   "embeddium.plus.options.culling.tile.distance.horizontal.title": "Block Entities Max Distance (Horizontal)",
@@ -65,32 +100,6 @@
   "embeddium.plus.options.darkness.moonphase.full.title": "Full Moon Bright (max)",
   "embeddium.plus.options.darkness.moonphase.full.desc": "Configure brightness on a full moon, or maximum bright level on black moon phase",
 
-  "embeddium.plus.options.displayfps.title": "Display FPS",
-  "embeddium.plus.options.displayfps.desc": "Displays the current FPS. Advanced mode also displays minimum FPS, as well as 15 second average FPS, useful for judging performance.",
-
-  "embeddium.plus.options.displayfps.gravity.title": "Text Gravity",
-  "embeddium.plus.options.displayfps.gravity.desc": "Corner position of the FPS display",
-  "embeddium.plus.options.displayfps.gravity.left": "Left",
-  "embeddium.plus.options.displayfps.gravity.center": "Center",
-  "embeddium.plus.options.displayfps.gravity.right": "Right",
-
-  "embeddium.plus.options.displayfps.system.title": "Display Metrics",
-  "embeddium.plus.options.displayfps.system.desc": "Displays memory usage and GPU usage beside FPS counter",
-  "embeddium.plus.options.displayfps.system.gpu": "Graphics only",
-  "embeddium.plus.options.displayfps.system.ram": "Memory only",
-
-  "embeddium.plus.options.displayfps.margin.title": "Text Margin",
-  "embeddium.plus.options.displayfps.margin.desc": "Offset of the FPS display",
-
-  "embeddium.plus.options.displayfps.shadow.title": "Use Text Shadow Box",
-  "embeddium.plus.options.displayfps.shadow.desc": "Add a Shadow box onto FPS Display, at the pure style of F3",
-
-  "embeddium.plus.options.displayfps.fps": "FPS",
-  "embeddium.plus.options.displayfps.min": "MIN",
-  "embeddium.plus.options.displayfps.avg": "AVG",
-  "embeddium.plus.options.displayfps.gpu": "GPU",
-  "embeddium.plus.options.displayfps.mem": "MEM",
-
   "embeddium.plus.options.dynlights.page": "Dynamic Lights",
   "embeddium.plus.options.dynlights.tiles.title": "Use for Block Entities",
   "embeddium.plus.options.dynlights.tiles.desc": "If enabled, dynamic lighting will be showed on tile entities (furnaces, modded machines, etc).\n\nThis can drastically increase the amount of lighting updates, even when you're not around furnaces",
@@ -100,6 +109,15 @@
   "embeddium.plus.options.dynlights.speed.desc": "Controls how often dynamic lights will update.\n\nLighting recalculation can be expensive, so slower values will give better performance.",
   "embeddium.plus.options.fadein.title": "Chunk Fade In Quality",
   "embeddium.plus.options.fadein.desc": "Controls how fast chunks fade in. No performance hit, Fancy simply takes longer, but looks a bit cooler. Currently not working",
+
+  "embeddium.plus.options.leaves_culling.title": "Leaves Culling",
+  "embeddium.plus.options.leaves_culling.desc": "Reduces the number of leaves visible faces of the same type, Controls the depth of the culling",
+  "embeddium.plus.options.leaves_culling.all": "All",
+  "embeddium.plus.options.leaves_culling.more": "More",
+  "embeddium.plus.options.leaves_culling.half": "Half",
+  "embeddium.plus.options.leaves_culling.less": "Less",
+  "embeddium.plus.options.leaves_culling.off": "Off",
+
   "embeddium.plus.options.fastchest.title": "Use Fast Chests",
   "embeddium.plus.options.fastchest.desc": "If enabled, replaces chests model with a static model, like a normal block. Breaks chest animation but goes more faster on chest rooms\n\nOption has no effects with flywheel installed and running batching or instancing backend\nIMPORTANT: enabling/disabling it requires also enabling/disabling resourcepack",
   "embeddium.plus.options.fastbeds.title": "Use Fast Beds",

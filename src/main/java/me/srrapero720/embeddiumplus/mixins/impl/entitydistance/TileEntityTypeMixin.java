@@ -22,19 +22,18 @@ public abstract class TileEntityTypeMixin implements IWhitelistCheck {
     @Unique private boolean embPlus$whitelisted = false;
 
     @Override
-    public boolean embPlus$isAllowed() {
+    public boolean embPlus$isWhitelisted() {
         if (embPlus$checked) return embPlus$whitelisted;
-
-        var resource = getKey(embPlus$cast());
+        ResourceLocation resource = BlockEntityType.getKey(embPlus$cast());
+        if (resource == null) {
+            LOGGER.warn(e$IT, "key for '{}' is null, some mod decides to broke itself, not whitelisting", this.getClass().getName());
+            return false;
+        }
         this.embPlus$whitelisted = EmbyTools.isWhitelisted(resource, EmbyConfig.tileEntityWhitelist);
         this.embPlus$checked = true;
 
         LOGGER.debug(e$IT,"Whitelist checked for {}", resource.toString());
         return embPlus$whitelisted;
-    }
-
-    @Shadow @Nullable public static ResourceLocation getKey(BlockEntityType<?> pBlockEntityType) {
-        throw new UnsupportedOperationException("stub!");
     }
 
     @Unique

@@ -77,6 +77,7 @@ public class EmbyConfig {
     // PERFORMANCE;
     public static final BooleanValue hideJREMI;
     public static final BooleanValue fontShadows;
+    public static final EnumValue<LeavesCullingMode> leavesCulling;
     public static final BooleanValue fastChests;
     public static final BooleanValue fastBeds;
     public static boolean hideJREMICache;
@@ -90,7 +91,11 @@ public class EmbyConfig {
     public static final BooleanValue entityDistanceCulling;
     public static final IntValue entityCullingDistanceX;
     public static final IntValue entityCullingDistanceY;
+    public static final BooleanValue monsterDistanceCulling;
+    public static final IntValue monsterCullingDistanceX;
+    public static final IntValue monsterCullingDistanceY;
     public static final ConfigValue<List<? extends String>> entityWhitelist; // QUICK CHECK
+    public static final ConfigValue<List<? extends String>> monsterWhitelist; // QUICK CHECK
     public static final ConfigValue<List<? extends String>> tileEntityWhitelist; // QUICK CHECK
     public static boolean tileEntityDistanceCullingCache;
     public static int tileEntityCullingDistanceXCache;
@@ -98,6 +103,9 @@ public class EmbyConfig {
     public static boolean entityDistanceCullingCache;
     public static int entityCullingDistanceXCache;
     public static int entityCullingDistanceYCache;
+    public static boolean monsterDistanceCullingCache;
+    public static int monsterCullingDistanceXCache;
+    public static int monsterCullingDistanceYCache;
 
     // OTHERS
     public static final EnumValue<AttachMode> borderlessAttachModeF11;
@@ -242,6 +250,10 @@ public class EmbyConfig {
         // embeddiumplus -> performance
         BUILDER.push("performance");
 
+        leavesCulling = BUILDER
+                .comment("Sets culling mode", "Reduces number of visible faces when the neighbor blocks are leaves")
+                .defineEnum("leavesCulling", LeavesCullingMode.OFF);
+
         hideJREMI = BUILDER
                 .comment("Toggles JREI item rendering until searching", "Increases performance a little bit and cleans your screen when you don't want to use it")
                 .define("hideJREI", false);
@@ -250,13 +262,18 @@ public class EmbyConfig {
                 .comment("Toggles Minecraft Fonts shadows", "Depending of the case may increase performance", "Gives a flat style text")
                 .define("fontShadows", true);
 
+        // embeddiumplus -> performance -> fastModels
+        BUILDER.push("fastModels");
         fastChests = BUILDER
                 .comment("Toggles FastChest feature", "Without flywheel installed or using any backend, it increases FPS significatly on chest rooms")
-                .define("fastChest", false);
+                .define("enableChests", false);
 
         fastBeds = BUILDER
                 .comment("Toggles FastBeds feature")
-                .define("fastBed", false);
+                .define("enableBeds", false);
+
+        // embeddiumplus -> performance
+        BUILDER.pop();
 
         // embeddiumplus -> performance -> distanceCulling
         BUILDER.push("distanceCulling");
@@ -285,7 +302,7 @@ public class EmbyConfig {
         // embeddiumplus -> performance -> distanceCulling -> entities
         BUILDER.push("entities");
         entityDistanceCulling = BUILDER
-                .comment("Toggles distance culling for entities", "Maybe you use another mod for that :(")
+                .comment("Toggles distance culling for entities, doesn't affect monsters culling", "Check the options below")
                 .define("enable", true);
         entityCullingDistanceX = BUILDER
                 .comment("Configure horizontal max distance before cull entities", "Value is squared, default was 64^2 (or 64x64)")
@@ -299,8 +316,26 @@ public class EmbyConfig {
                 .comment("List of all Entities to be ignored by distance culling", "Uses ResourceLocation to identify it", "Example 1: \"minecraft:bat\" - Ignores bats only", "Example 2: \"alexsmobs:*\" - ignores all entities for alexmobs mod")
                 .defineListAllowEmpty(Collections.singletonList("whitelist"), Arrays.asList(DEFAULT_ENTITIES_WHITELIST), (s) -> s.toString().contains(":"));
 
+        // embeddiumplus -> performance -> distanceCulling -> entities -> monsters
+        BUILDER.push("monsters");
+        monsterDistanceCulling = BUILDER
+                .comment("Toggles distance culling for monsters (or hostile entities, whatever you want to call it), doesn't affect neutral/pacific entities", "Check the options above")
+                .define("enable", false);
+
+        monsterCullingDistanceX = BUILDER
+                .comment("Configure horizontal max distance before cull monster entities", "Value is squared, default was 64^2 (or 64x64)")
+                .defineInRange("cullingMaxDistanceX", 16384, 0, Integer.MAX_VALUE);
+
+        monsterCullingDistanceY = BUILDER
+                .comment("Configure vertical max distance before cull monster entities", "Value is raw")
+                .defineInRange("cullingMaxDistanceY", 64, 0, 512);
+
+        monsterWhitelist = BUILDER
+                .comment("List of all monster entities to be ignored by distance culling", "Uses ResourceLocation to identify it", "Example 1: \"minecraft:bat\" - Ignores bats only", "Example 2: \"alexsmobs:*\" - ignores all entities for alexmobs mod")
+                .defineListAllowEmpty(Collections.singletonList("whitelist"), Arrays.asList(DEFAULT_ENTITIES_WHITELIST), (s) -> s.toString().contains(":"));
+
         // embeddiumplus ->
-        BUILDER.pop(3);
+        BUILDER.pop(4);
 
         // embeddiumplus -> others
         BUILDER.push("others");
@@ -395,6 +430,9 @@ public class EmbyConfig {
         entityDistanceCullingCache = entityDistanceCulling.get();
         entityCullingDistanceXCache = entityCullingDistanceX.get();
         entityCullingDistanceYCache = entityCullingDistanceY.get();
+        monsterDistanceCullingCache = monsterDistanceCulling.get();
+        monsterCullingDistanceXCache = monsterCullingDistanceX.get();
+        monsterCullingDistanceYCache = monsterCullingDistanceY.get();
 
         fastLanguageReloadCache = fastLanguageReload.get();
 
@@ -505,5 +543,9 @@ public class EmbyConfig {
         public boolean isBorderless() {
             return this == BORDERLESS;
         }
+    }
+
+    public enum LeavesCullingMode {
+        ALL, OFF; // MORE, HALF, LESS
     }
 }
